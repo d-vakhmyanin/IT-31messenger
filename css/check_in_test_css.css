@@ -1,0 +1,68 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    
+}
+
+.div__check-in_block{
+    z-index: 3;
+    height: 800px;
+    width: 500px;
+    background-color: #e7ebf0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__check-in{
+    height: 60%;
+    width: 60%;
+    margin: 0 auto;
+    background-color: #5682a3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div_form__input{   
+    width: 177px;
+}
+
+.div_form__button{
+    display: flex;
+    justify-content: center;
+
+}
+
+.div__fexsed__Date{
+    display: flex;
+    justify-content: center;
+}
+
+.div-fexsed__block{
+    display: flex;
+    margin-top: 10px;
+}
+
+.form_Date__input{
+    width: 33.3%;
+}
+
+.button-registratoin{
+    width: 100%;
+    height: 30px;
+}
+
+.text-small-information{
+    color: tomato;
+    width: 100%;
+    font-size: large;
+}
+
