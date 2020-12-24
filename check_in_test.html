@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/check_in_test_css.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div__check-in_block">
+        <div  class="form__check-in">
+            <div class="div_form__input">
+                <small>login</small>
+                <input onblur="lostFocusLogin()" placeholder="Your login" class="fixed_item "  required><br>
+                <small class="text-small-information"></small>
+            </div>
+            <div class="div_form__input">
+                <small>Name</small>
+                <input onblur="lostFocusName()" type="text" placeholder="Your name" class="fixed_item"  required><br>
+                <small class="text-small-information"></small>
+            </div>
+            <div class="div_form__input">
+                <small>Surname</small>
+                <input onblur="lostFocusSurname()" type="text" placeholder="Your surname" class="fixed_item"  required><br>
+                <small class="text-small-information"></small>
+            </div>
+            <div class="div_form__input">
+                <small>Password</small>
+                <input onblur="lostFocusPassword()" type="password" placeholder="password" class="fixed_item"  required><br>
+                <small class="text-small-information"></small>
+            </div>
+            <div class="div_form__input">
+                <small>Password confirmation</small>
+                <input onblur="lostFucusPasswordConfirmation()" type="password" placeholder="Password confirmation" class="fixed_item"  required><br>
+                <small class="text-small-information"></small>
+            </div>
+            <div class="div_form__input">
+                <div class="div__fexsed__Date">
+                    Date of Birth
+                </div>
+                <div class="div-fexsed__block">
+                    <input type="text" class="form_Date__input"  placeholder="Day"> 
+                    <input type="text" class="form_Date__input"  placeholder="Month"> 
+                    <input type="text" class="form_Date__input"  placeholder="Year">
+                </div>
+            </div>
+            <div class="div_form__input div_form__button">
+                <button class="button-registratoin" onclick="check()">Registration</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/check_in.js"></script>
+</body>
+</html>

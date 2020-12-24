@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="main-page" style="display: block;">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/emojionearea.min.css">
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="js/emojionearea.min.js"></script>
+    <title>Мессенджер101</title>
+</head>
+
+<body>
+    <div class="header" id="h">
+        <div class="header__left-bar-header" id="hlb" onclick="dropDownMenu()">
+            <div class="header__left-bar-header__icon-hamburger" id="hlbih">
+                <div class="icon-bar" id="ib1"></div>
+                <div class="icon-bar" id="ib2"></div>
+                <div class="icon-bar" id="ib3"></div>
+            </div>
+            <header class="header__left-bar-header__messenger-name" id="hlbmn">Messenger</header>
+            <div class="header__left-bar-header__drop-down-menu" id="hlbddm">
+                <button class="header__left-bar-header__drop-down-menu_newGroup" id="hlbddmng"
+                    onclick="displayNewGroup()">New group</button>
+                <button class="header__left-bar-header__drop-down-menu_contacts" id="hlbddmc">Contacts</button>
+                <button class="header__left-bar-header__drop-down-menu_settings" id="hlbddms">Settings</button>
+                <button class="header__left-bar-header__drop-down-menu_about" id="hlbddma">About</button>
+            </div>
+        </div>
+        <div class="header__right-bar-header" id="hrb">
+            <div class="header__right-bar-header_chat-info" id="hrbci"> CHAT INFO</div>
+            <div class="header__right-bar-header_search-icon" id="hrbsi"> </div>
+            <div class="header__right-bar-header__drop-down-settings" id="hrbdds">
+                <div class="icon-circle" id="ic1"></div>
+                <div class="icon-circle" id="ic2"></div>
+                <div class="icon-circle" id="ic3"></div>
+                <!-- <a class="header__right-bar-header__drop-down-settings_??" id="hrbdds?" href="">?</a>
+                <a class="header__right-bar-header__drop-down-settings_??" id="hrbdds??" href="">??</a>
+                <a class="header__right-bar-header__drop-down-settings_??" id="hrbdds???" href="">???</a> -->
+            </div>
+        </div>
+    </div>
+    <div class="flexbox" id="f">
+        <div class="left-bar" id="lb">
+            <input class="left-bar__search" id="lbs" type="text" placeholder="Search" onkeyup="dialogSearch()"></input>
+            <div class="left-bar__dialogs-grid" id="lbd" data-chatId="">
+                <div class="left-bar__dialogs-grid__dialog" id="lbdd0" onclick="recreateMainContainer.apply(this)"
+                    onmouseover="check.apply(this)" onmouseout="uncheck.apply(this)">
+                    <img class="left-bar__dialogs-grid__dialog__image" src="img/chatimg.png"></img>
+                    <div class="left-bar__dialogs-grid__dialog__name">Dialog Name 1</div>
+                    <div class="left-bar__dialogs-grid__dialog__date">12:45</div>
+                    <div class="left-bar__dialogs-grid__dialog__last-message">You: qq</div>
+                    <div class="left-bar__dialogs-grid__dialog__new-message"></div>
+                </div>
+            </div>
+        </div>
+        <main class="main-container" id="mc">
+            <div class="default-text" id="def">Please select a chat to start messaging</div>
+            <div class="main-container__message-history" id="mcmh">
+                <div class="main-container__message-history__message" id="hidden-message" onclick="recreatePanel.apply(this)">
+                    <div class="main-container__message-history__message_img"></div>
+                    <div clss="main-container__message-history__message__body">
+                        <div class="main-container__message-history__message__body_author">User</div>
+                        <div class="main-container__message-history__message__body_text">Some text</div>
+                    </div>
+                    <div class="main-container__message-history__message__body__date">2:12:33</div>
+                </div>
+            </div>
+            <div class="main-container__typping-wrap" id="mcmhtw"></div>
+            <div class="main-container__panel" id="mcp">
+                <div class="main-container__panel__grid" id="mcpg">
+                    <div class="main-container__panel__grid_user-img" id="mcpgui"> </div>
+                    <div class="main-container__panel__grid__form" id="mcpgf">
+                        <textarea class="main-container__panel__grid__form_text-area" id="mcpgfta"
+                            placeholder="Write a message..."></textarea>
+                        <button class="main-container__panel__grid__form_btn" id="mcpgfb"
+                            onclick="sendMessage()">SEND</button>
+                    </div>
+                    <div class="main-container__panel__grid_chat-img" id="mcpgci"></div>
+                </div>
+            </div>
+            <div class="main-container__got-selected-messages-panel" id="mcgsmp">
+                <div class="main-container__got-selected-messages-panel__flex-box" id="mcgsmpfb">
+                    <button class="main-container__got-selected-messages-panel__flex-box_forward-btn"
+                        id="mcgsmpfbf">FORWARD</button>
+                    <button class="main-container__got-selected-messages-panel__flex-box_delete-btn"
+                        id="mcgsmpfbd">DELETE</button>
+                    <button class="main-container__got-selected-messages-panel__flex-box_reply-btn"
+                        id="mcgsmpfbr">REPLY</button>
+                    <button class="main-container__got-selected-messages-panel__flex-box__edit-btn"
+                        id="mcgsmpfbe">EDIT</button>
+                    <button class="main-container__got-selected-messages-panel__flex-box__cancel-btn" id="mcgsmpfbc"
+                        onclick="canselSelection()">CANSEL</button>
+                </div>
+            </div>
+        </main>
+        <script>
+            $(document).ready(function () {
+                $("#mcpgfta").emojioneArea({
+                    search: false
+                });
+
+            })
+        </script>
+    </div>
+    <div class="newGroupDialog" id="ngd">
+        <div class="newGroupDialog__dialog-block" id="ngddb">
+            <div class="newGroupDialog__dialog-block__header" id="ngddbh">
+                <div class="newGroupDialog__dialog-block__header_name" id="ngddbhn">New group</div>
+                <div class="newGroupDialog__dialog-block__header_close-btn" id="ngddbhcb" onclick="closeNewDialog()">
+                    Close</div>
+            </div>
+            <div class="newGroupDialog__dialog-block__main-container" id="ngddbmc">
+                <input class="newGroupDialog__dialog-block__main-container_search-bar" id="ngddbmcsb" type="text"
+                    placeholder="Search..." onkeyup="userSearch()">
+                <div class="newGroupDialog__dialog-block__main-container_main-content" id="ngddbmcmc">
+                    <div class="newGroupDialog__dialog-block__main-container_main-content__user" id="hidden-user"
+                        onmousemove="hoverUser.apply(this)" onmouseout="unhoverUser.apply(this)"
+                        onclick="checkUser.apply(this)">
+                        <div class="newGroupDialog__dialog-block__main-container_main-content__user_image"></div>
+                        <div class="newGroupDialog__dialog-block__main-container_main-content__user_name"></div>
+                        <div class="newGroupDialog__dialog-block__main-container_main-content__user_last-seen"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="newGroupDialog__dialog-block__footer" id="ngddbf">
+                <div class="newGroupDialog__dialog-block__footer_next" id="ngddbfn" onclick="nextClick()">Next</div>
+            </div>
+        </div>
+        <div class="newGroupDialog__create-dialog" id="ngdcd">
+            <div class="newGroupDialog__create-dialog__main-container" id="ngdcdmc">
+                <div class="newGroupDialog__create-dialog__main-container_header" id="ngdcdmch">Create group</div>
+                <input class="newGroupDialog__create-dialog__main-container_text-input" id="ngdcdmcti" placeholder="Group name" type="text">
+            </div>
+            <div class="newGroupDialog__create-dialog__footer" id="ngdcdf">
+                <button class="newGroupDialog__create-dialog__footer_cancel-btn" id="ngdcdfcbtn" onclick="cancelCreatingDialogClick()">CANCEL</button>
+                <button class="newGroupDialog__create-dialog__footer_submit-btn" id="ngdcdfsbtn" onclick="createNewGroup()">CREATE GROUP</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="footer_empty">
+        &#8294;
+    </footer>
+
+</body>
+
+</html>
